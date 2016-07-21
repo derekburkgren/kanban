@@ -2,21 +2,31 @@ import uuid from 'node-uuid';
 import React, {Component} from 'react';
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            notes:
+            [
+                {
+                    id: uuid.v4(),
+                    task: 'Learn Webpack'
+                },
+                {
+                    id: uuid.v4(),
+                    task: 'Learn React'
+                },
+                {
+                    id: uuid.v4(),
+                    task: 'Do laundry'
+                }
+            ]
+        };
+    }
+
     render() {
-        const notes = [
-            {
-                id: uuid.v4(),
-                task: 'Learn Webpack'
-            },
-            {
-                id: uuid.v4(),
-                task: 'Learn React'
-            },
-            {
-                id: uuid.v4(),
-                task: 'Do laundry'
-            }
-        ];
+
+        const notes = this.state.notes;
 
         return (<div>
                   <ul>
